@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AlarmTrigger : MonoBehaviour
 {
-    [SerializeField] private Alarm _alarm;
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private UnityEvent _MovedInTrigger;
+    [SerializeField] private UnityEvent _MovedOutTrigger;
 
     private void OnTriggerEnter(Collider other)
     {
-        _alarm.OnAlarm();
+        if (other.TryGetComponent(out FirstPersonController firstPersonController))
+            _MovedInTrigger?.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _alarm.OffAlarm();
+        if (other.TryGetComponent(out FirstPersonController firstPersonController))
+            _MovedOutTrigger?.Invoke();
     }
 }

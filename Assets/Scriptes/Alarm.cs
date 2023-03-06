@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,27 +12,36 @@ public class Alarm : MonoBehaviour
     private float _minVolume = 0;
     private float _speedExhangeVolume = 0.01f;
 
+    private bool _isObjectInTrigger = false;
+
     private Coroutine _corotune;
 
-    public void OnAlarm()
+    public void SetAlarm()
     {
+        _isObjectInTrigger = !_isObjectInTrigger;
+
         if (_corotune != null)
             StopCoroutine(_corotune);
 
-        _audioSourse.Play();
-        _corotune = StartCoroutine(SwitchAlarm(_maxVolume));
+        if (_isObjectInTrigger)
+        {
+            _audioSourse.Play();
+            StartSwitchAlarm(_maxVolume);
+
+            return;
+        }
+
+        StartSwitchAlarm(_minVolume);
     }
 
-    public void OffAlarm()
+    private void StartSwitchAlarm(float value)
     {
-        if (_corotune != null)
-            StopCoroutine(_corotune);
-
-        _corotune = StartCoroutine(SwitchAlarm(_minVolume));
+        _corotune = StartCoroutine(SwitchAlarm(value));
     }
 
     private IEnumerator SwitchAlarm(float valueNoise)
     {
+
         while(_audioSourse.volume != valueNoise)
         {
             _audioSourse.volume = Mathf.MoveTowards(_audioSourse.volume, valueNoise, _speedExhangeVolume);
