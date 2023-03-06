@@ -41,7 +41,6 @@ public class Alarm : MonoBehaviour
 
     private IEnumerator SwitchAlarm(float valueNoise)
     {
-
         while(_audioSourse.volume != valueNoise)
         {
             _audioSourse.volume = Mathf.MoveTowards(_audioSourse.volume, valueNoise, _speedExhangeVolume);
