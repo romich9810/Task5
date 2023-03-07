@@ -45,16 +45,16 @@ public class Alarm : MonoBehaviour
         {
             _audioSourse.volume = Mathf.MoveTowards(_audioSourse.volume, valueNoise, _speedExhangeVolume);
 
-            if (_audioSourse.volume == _maxVolume)
-                _ricardos.SetActive(true);
-
-            if (_audioSourse.volume == _minVolume)
-            {
-                _ricardos.SetActive(false);
-                _audioSourse.Pause();
-            }
-
             yield return null; 
+        }
+
+        if (_audioSourse.volume == _maxVolume)
+            _ricardos.SetActive(true);
+
+        if (_audioSourse.volume == _minVolume)
+        {
+            _ricardos.SetActive(false);
+            _audioSourse.Pause();
         }
     }
 }
