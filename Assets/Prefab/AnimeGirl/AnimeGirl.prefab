@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedMove: 2
+  _prefabEnemy: {fileID: 1694388104871626409}
 --- !u!64 &5681241909725704361
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &41826851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8477730858385140899, guid: 434fa02c17e50c44d80595d40c2ce37c, type: 3}
+  m_PrefabInstance: {fileID: 658065985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af851504962897c43a1748546cabd84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &276771557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 128840803129422262, guid: 8938082d7f929514a880503117115839, type: 3}
@@ -727,6 +738,10 @@ PrefabInstance:
     - target: {fileID: 1694388104871626409, guid: 434fa02c17e50c44d80595d40c2ce37c, type: 3}
       propertyPath: m_Name
       value: AnimeGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694388104871626409, guid: 434fa02c17e50c44d80595d40c2ce37c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1592,7 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1165248851}
   _capacity: 15
-  _enemyPrefab: {fileID: 1694388104871626409, guid: 434fa02c17e50c44d80595d40c2ce37c, type: 3}
+  _enemy: {fileID: 41826851}
   _spawnPoints:
   - {fileID: 1504616235}
   - {fileID: 1122262957}

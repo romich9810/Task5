@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PoolEnemy : MonoBehaviour
@@ -15,11 +16,11 @@ public class PoolEnemy : MonoBehaviour
         get { return _capacity; }
     }
 
-    protected void Initialize(GameObject enemy)
+    protected void Initialize(Enemy enemy)
     {
         for (int i = 0; i < _capacity; i++)
         {
-            GameObject spawned = Instantiate(enemy, _container.transform);
+            GameObject spawned = Instantiate(enemy.gameObject, _container.transform);
             spawned.SetActive(false);
 
             _pool.Add(spawned);

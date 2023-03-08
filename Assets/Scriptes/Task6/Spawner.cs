@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : PoolEnemy
 {
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
 
@@ -12,7 +12,7 @@ public class Spawner : PoolEnemy
 
     private void Start()
     {
-        Initialize(_enemyPrefab);
+        Initialize(_enemy);
 
         _coroutine = StartCoroutine(SpawnEnemy());
     }

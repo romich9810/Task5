@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
 
-    private Coroutine corotune;
+
     private FirstPersonController _player;
 
     private void Start()
